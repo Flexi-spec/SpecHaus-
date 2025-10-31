@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo View</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+      background: #1a1a2e;
+      color: #00eaff;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .photo-container {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .photo-container img {
+      max-width: 80%;
+      max-height: 70vh;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .photo-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    .back-btn {
+      margin-top: 20px;
+      padding: 8px 20px;
+      border-radius: 6px;
+      border: none;
+      background: #00eaff;
+      color: #000;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .back-btn:hover {
+      background: #0088cc;
+    }
+  </style>
+</head>
+<body>
+  <header>SpecHaus Gallery</header>
+
+  <div class="photo-container">
+    <img id="photo" src="" alt="Artwork">
+    <div class="photo-title" id="photoTitle"></div>
+    <button class="back-btn" onclick="goBack()">Back to Gallery</button>
+  </div>
+
+  <script>
+    const photos = {
+      1: { src: 'pic1.jpg', title: '"Your future is watching" — Victoria' },
+      2: { src: 'pic2.jpg', title: '"One more try" — Jonathan' },
+      3: { src: 'pic3.jpg', title: '"Work quiet, shine loud" — Malik' },
+      4: { src: 'pic4.jpg', title: '"Dream code, repeat" — Aisha' },
+      5: { src: 'pic5.jpg', title: '"Think different, build better" — Daniel' },
+      6: { src: 'pic6.jpg', title: '"Pixels & passion" — Sienna' },
+      7: { src: 'pic7.jpg', title: '"Breathe and begin" — Clara' },
+      8: { src: 'pic8.jpg', title: '"Focus on the now" — Leo' },
+      9: { src: 'pic9.jpg', title: '"Peace in pixels" — Naomi' },
+      10: { src: 'pic10.jpg', title: '"Golden Hour Glow" — Emily' },
+      11: { src: 'pic11.jpg', title: '"Urban Shadows" — Marcus' },
+      12: { src: 'pic12.jpg', title: '"Nature\'s Whisper" — Ayana' },
+      13: { src: 'pic13.jpg', title: '"Street Vibes" — Theo' }
+    };
+
+    function getIdFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('id');
+    }
+
+    const id = getIdFromURL();
+    if (photos[id]) {
+      document.getElementById('photo').src = photos[id].src;
+      document.getElementById('photoTitle').textContent = photos[id].title;
+    } else {
+      document.getElementById('photoTitle').textContent = 'Photo not found';
+    }
+
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>

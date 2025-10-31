@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | SpecHaus Studio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #0d0d0f;
+      color: #f0f0f0;
+    }
+
+    header {
+      background: #1a1a2e;
+      color: #00eaff;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #00eaff;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #bbb;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: #1a1a2e;
+      padding: 25px;
+      border-radius: 10px;
+    }
+
+    input, textarea {
+      background: #0e0e13;
+      border: 1px solid #222;
+      border-radius: 6px;
+      color: #fff;
+      padding: 12px;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #00eaff;
+      outline: none;
+    }
+
+    button {
+      background: #00eaff;
+      color: #0d0d0f;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    button:hover {
+      background: #00cce0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85rem;
+      color: #777;
+      border-top: 1px solid #222;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Contact SpecHaus</header>
+
+  <section>
+    <h1>Let’s Talk Promotion</h1>
+    <p>Want to promote your artwork, photo, or concept? Fill the form below — it’ll open a WhatsApp chat with all your details pre-filled. You can attach your image there before sending.</p>
+
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your name" required />
+      <textarea id="details" placeholder="Details about your request..." rows="4" required></textarea>
+      <input type="number" id="amount" placeholder="Amount for promotion (₦)" required />
+      <button type="submit">Send via WhatsApp</button>
+    </form>
+  </section>
+
+  <footer>
+    SpecHaus © 2025 — Powered by Flexi Dev Studio
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = encodeURIComponent(document.getElementById('name').value);
+      const details = encodeURIComponent(document.getElementById('details').value);
+      const amount = encodeURIComponent(document.getElementById('amount').value);
+
+      const message = `Hey Flexi 👋,%0AI'm ${name}.%0A%0ADetails:%0A${details}%0A%0AAmount: ₦${amount}%0A%0AI'll attach my image now.`;
+
+      window.open(`https://wa.me/2347037197124?text=${message}`, '_blank');
+    });
+  </script>
+
+</body>
+</html>

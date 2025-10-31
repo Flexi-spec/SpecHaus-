@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Featured | SpecHaus Studio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #111;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1a1a2e;
+      color: #00eaff;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px 20px 30px;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      color: #00eaff;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: #ccc;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: #1a1a2e;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      color: #00eaff;
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      color: #bbb;
+      font-size: 0.9rem;
+      padding: 0 10px 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.85rem;
+      color: #777;
+      border-top: 1px solid #222;
+      margin-top: 30px;
+    }
+
+    a {
+      color: #00eaff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Featured Creators</header>
+
+  <section class="hero">
+    <h1>Spotlight of the Month</h1>
+    <p>Each month, SpecHaus shines a light on standout digital creators, photographers, and artists redefining the creative space. Here are this month’s featured talents.</p>
+  </section>
+
+  <section class="featured-grid">
+    <div class="card" onclick="openPhoto('photoView.html?id=1')">
+      <img src="pic1.jpg" alt="Featured 1">
+      <h3>Victoria A.</h3>
+      <p>Blends calm tones with bold storytelling. Her work “Your Future is Watching” captures patience in ambition.</p>
+    </div>
+
+    <div class="card" onclick="openPhoto('photoView.html?id=4')">
+      <img src="pic4.jpg" alt="Featured 2">
+      <h3>Malik O.</h3>
+      <p>Tech-inspired artist merging code and motion design — “Work Quiet, Shine Loud” defines his minimalist energy.</p>
+    </div>
+
+    <div class="card" onclick="openPhoto('photoView.html?id=6')">
+      <img src="pic3.jpg" alt="Featured 3">
+      <h3>Aisha T.</h3>
+      <p>Her digital patterns evoke rhythm and reflection. “Dream Code Repeat” reimagines productivity as art.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>SpecHaus by <a href="#">Flexi Dev Studio</a> — Where visuals meet vision.</p>
+    <a href="home.html">← Back to Home</a>
+  </footer>
+
+  <script>
+    function openPhoto(url) {
+      window.location.href = url;
+    }
+  </script>
+
+</body>
+</html>

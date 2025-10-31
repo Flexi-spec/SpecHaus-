@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpecHaus Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #111;
+      --card-bg: #1a1a2e;
+      --accent: #00eaff;
+      --text: #fff;
+      --radius: 8px;
+      --gap: 12px;
+      --padding: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--card-bg);
+      color: var(--accent);
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.5rem;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--padding);
+    }
+
+    .section {
+      margin: 2.5rem 0;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: var(--gap);
+      padding: var(--padding) 0;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .gallery::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .gallery::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .gallery::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 3px;
+    }
+
+    .gallery-item {
+      flex: 0 0 180px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      scroll-snap-align: start;
+      text-align: center;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 234, 255, 0.2);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 20px;
+      object-fit: cover;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .gallery-item p {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #ccc;
+    }
+
+    .gallery-item p strong {
+      color: var(--text);
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    @media (max-width: 600px) {
+      .gallery-item {
+        flex: 0 0 150px;
+      }
+      .gallery-item img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>SpecHaus Gallery</header>
+
+  <div class="container">
+
+    <!-- Motivation Section -->
+    <section class="section">
+      <h2>Motivation</h2>
+      <div class="gallery" data-section="motivation">
+        <div class="gallery-item" data-id="1">
+          <img src="pic1.jpg" alt="Motivational artwork: Your future is watching">
+          <p><strong>Victoria</strong>"Your future is watching"</p>
+        </div>
+        <div class="gallery-item" data-id="2">
+          <img src="pic2.jpg" alt="Motivational artwork: One more try">
+          <p><strong>Jonathan</strong>"One more try"</p>
+        </div>
+        <div class="gallery-item" data-id="3">
+          <img src="pic3.jpg" alt="Motivational artwork: Work quiet, shine loud">
+          <p><strong>Malik</strong>"Work quiet, shine loud"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Code & Creativity Section -->
+    <section class="section">
+      <h2>Code & Creativity</h2>
+      <div class="gallery" data-section="creativity">
+        <div class="gallery-item" data-id="4">
+          <img src="pic4.jpg" alt="Creative coding artwork: Dream code, repeat">
+          <p><strong>Aisha</strong>"Dream code, repeat"</p>
+        </div>
+        <div class="gallery-item" data-id="5">
+          <img src="pic5.jpg" alt="Creative coding artwork: Think different, build better">
+          <p><strong>Daniel</strong>"Think different, build better"</p>
+        </div>
+        <div class="gallery-item" data-id="6">
+          <img src="pic6.jpg" alt="Creative coding artwork: Pixels & passion">
+          <p><strong>Sienna</strong>"Pixels & passion"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mindfulness Section -->
+    <section class="section">
+      <h2>Mindfulness</h2>
+      <div class="gallery" data-section="mindfulness">
+        <div class="gallery-item" data-id="7">
+          <img src="pic7.jpg" alt="Mindfulness artwork: Breathe and begin">
+          <p><strong>Clara</strong>"Breathe and begin"</p>
+        </div>
+        <div class="gallery-item" data-id="8">
+          <img src="pic8.jpg" alt="Mindfulness artwork: Focus on the now">
+          <p><strong>Leo</strong>"Focus on the now"</p>
+        </div>
+        <div class="gallery-item" data-id="9">
+          <img src="pic9.jpg" alt="Mindfulness artwork: Peace in pixels">
+          <p><strong>Naomi</strong>"Peace in pixels"</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // Event delegation for cleaner, scalable click handling
+    document.addEventListener('click', function(e) {
+      const item = e.target.closest('.gallery-item');
+      if (!item) return;
+
+      const id = item.getAttribute('data-id');
+      if (id) {
+        window.location.href = `photoview.html?id=${id}`;
+      }
+    });
+
+    // Optional: Add touch-friendly hover on mobile
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('touchstart', () => {}, { passive: true });
+    });
+  </script>
+
+</body>
+</html>
